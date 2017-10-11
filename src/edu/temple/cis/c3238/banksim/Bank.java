@@ -34,7 +34,7 @@ public class Bank {
 
         accounts[from].waitForAvailableFunds(amount);
         sem.acquire();
-        if (!open) {sem.release();return;}
+        if (!open) {return;}
             if (accounts[from].withdraw(amount)) {
                 accounts[to].deposit(amount);
             }
