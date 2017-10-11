@@ -29,7 +29,12 @@ public class Bank {
         }
         ntransacts = 0;
     }
-
+    
+    /*remove semaphores - make a synchronized boolean 
+    that waits for counter to hit 0. switch boolean to 
+    false and notify testing thread that all transfers
+    threads are finished running.*/
+    
     public void transfer(int from, int to, int amount) throws InterruptedException {
 
         accounts[from].waitForAvailableFunds(amount);
